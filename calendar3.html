@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NMDC Calendar 2025</title>
+  <style>
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #e0e0e0;
+      --holiday-color: #d32f2f;
+      --restricted-color: #ff9800;
+      --weekend-color: #f5f5f5;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #333;
+      font-size: 12px;
+    }
+    
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 3px solid var(--primary-color);
+      background: linear-gradient(to right, #003366, #0066cc);
+      color: white;
+    }
+    
+    .logo {
+      height: 80px;
+      margin-right: 20px;
+    }
+    
+    .header-text {
+      flex-grow: 1;
+      text-align: center;
+    }
+    
+    .header-text h1 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: bold;
+    }
+    
+    .header-text h2 {
+      font-size: 16px;
+      margin: 5px 0 0 0;
+      font-weight: normal;
+    }
+    
+    .main-container {
+      display: flex;
+      padding: 10px;
+      gap: 10px;
+    }
+    
+    .calendar-grid {
+      width: 60%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    
+    .month-container {
+      border: 1px solid var(--primary-color);
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .month-header {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .day-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-size: 10px;
+      padding: 5px 0;
+      background-color: var(--secondary-color);
+      font-weight: bold;
+    }
+    
+    .day-cell {
+      padding: 4px 0;
+      text-align: center;
+      font-size: 11px;
+      border-radius: 2px;
+      position: relative;
+    }
+    
+    .day-cell.weekend {
+      background-color: var(--weekend-color);
+    }
+    
+    .day-cell.holiday {
+      background-color: #ffebee;
+      color: var(--holiday-color);
+      font-weight: bold;
+    }
+    
+    .day-cell.restricted {
+      background-color: #fff3e0;
+      color: var(--restricted-color);
+    }
+    
+    .holiday-marker {
+      position: absolute;
+      top: 0;
+      right: 2px;
+      font-size: 6px;
+      color: var(--holiday-color);
+    }
+    
+    .sidebar {
+      width: 40%;
+      display: flex;
+      gap: 15px;
+    }
+    
+    .holiday-column {
+      flex: 1;
+    }
+    
+    .holiday-section {
+      margin-bottom: 15px;
+      background: white;
+      padding: 10px;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .section-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--secondary-color);
+    }
+    
+    .holiday-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 11px;
+    }
+    
+    .holiday-list li {
+      padding: 3px 0;
+      border-bottom: 1px dashed #eee;
+    }
+    
+    .holiday-general {
+      color: var(--holiday-color);
+    }
+    
+    .holiday-restricted {
+      color: var(--restricted-color);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 10px;
+      border-top: 2px solid var(--primary-color);
+      padding: 10px;
+      background: #f5f5f5;
+    }
+    
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-logo {
+      height: 50px;
+    }
+    
+    .footer-text {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <img src="nmdc.png" alt="NMDC Logo" class="logo">
+  <div class="header-text">
+    <h1>NMDC Steel Limited Calendar 2025</h1>
+    <h2>Corporate Office, Hyderabad</h2>
+  </div>
+</header>
+
+<!-- Main Container -->
+<div class="main-container">
+
+  <!-- Calendar Grid -->
+  <div class="calendar-grid">
+    
+    <!-- January -->
+    <div class="month-container">
+      <div class="month-header">January 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell weekend">4</div>
+        <div class="day-cell weekend">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell weekend">11</div>
+        <div class="day-cell weekend">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell holiday">26<span class="holiday-marker">●</span></div><div class="day-cell">17</div><div class="day-cell weekend">18</div>
+        <div class="day-cell weekend">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell weekend">25</div>
+        <div class="day-cell weekend">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell">31</div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- February -->
+    <div class="month-container">
+      <div class="month-header">February 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell weekend">2</div>
+        <div class="day-cell weekend">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell weekend">9</div>
+        <div class="day-cell weekend">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell restricted">14<span class="holiday-marker">●</span></div><div class="day-cell">15</div><div class="day-cell weekend">16</div>
+        <div class="day-cell weekend">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell weekend">23</div>
+        <div class="day-cell weekend">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- March -->
+    <div class="month-container">
+      <div class="month-header">March 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend">1</div>
+        <div class="day-cell weekend">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell weekend">8</div>
+        <div class="day-cell weekend holiday">9<span class="holiday-marker">●</span></div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell weekend">15</div>
+        <div class="day-cell weekend">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell weekend">22</div>
+        <div class="day-cell weekend">23</div><div class="day-cell">24</div><div class="day-cell holiday">25<span class="holiday-marker">●</span></div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell weekend">29</div>
+        <div class="day-cell weekend">30</div><div class="day-cell">31</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- April -->
+    <div class="month-container">
+      <div class="month-header">April 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell">1</div><div class="day-cell restricted">2<span class="holiday-marker">●</span></div><div class="day-cell">3</div><div class="day-cell holiday">4<span class="holiday-marker">●</span></div><div class="day-cell">5</div><div class="day-cell weekend">6</div>
+        <div class="day-cell weekend">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell weekend">13</div>
+        <div class="day-cell weekend holiday">14<span class="holiday-marker">●</span></div><div class="day-cell holiday">15<span class="holiday-marker">●</span></div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell weekend">20</div>
+        <div class="day-cell weekend">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell weekend">27</div>
+        <div class="day-cell weekend">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- May -->
+    <div class="month-container">
+      <div class="month-header">May 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell weekend">4</div>
+        <div class="day-cell weekend">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell weekend">11</div>
+        <div class="day-cell weekend">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell weekend">18</div>
+        <div class="day-cell weekend">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell weekend">25</div>
+        <div class="day-cell weekend">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell">31</div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- June -->
+    <div class="month-container">
+      <div class="month-header">June 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend">1</div>
+        <div class="day-cell weekend">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell weekend">8</div>
+        <div class="day-cell weekend">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell weekend">15</div>
+        <div class="day-cell weekend">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell holiday">21<span class="holiday-marker">●</span></div><div class="day-cell weekend">22</div>
+        <div class="day-cell weekend">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell weekend">29</div>
+        <div class="day-cell weekend">30</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- July -->
+    <div class="month-container">
+      <div class="month-header">July 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell weekend">6</div>
+        <div class="day-cell weekend">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell weekend">13</div>
+        <div class="day-cell weekend">14</div><div class="day-cell">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell weekend">20</div>
+        <div class="day-cell weekend">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell weekend">27</div>
+        <div class="day-cell weekend">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell">31</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- August -->
+    <div class="month-container">
+      <div class="month-header">August 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell weekend">3</div>
+        <div class="day-cell weekend">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell weekend">10</div>
+        <div class="day-cell weekend">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell">16</div><div class="day-cell weekend">17</div>
+        <div class="day-cell weekend">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell weekend">24</div>
+        <div class="day-cell weekend">25</div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell weekend">31</div>
+      </div>
+    </div>
+
+    <!-- September -->
+    <div class="month-container">
+      <div class="month-header">September 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+        <div class="day-cell weekend">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell weekend">7</div>
+        <div class="day-cell weekend">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell weekend">14</div>
+        <div class="day-cell weekend">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell weekend">21</div>
+        <div class="day-cell weekend">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell weekend">28</div>
+        <div class="day-cell weekend">29</div><div class="day-cell">30</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- October -->
+    <div class="month-container">
+      <div class="month-header">October 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell">2</div><div class="day-cell holiday">3<span class="holiday-marker">●</span></div><div class="day-cell">4</div><div class="day-cell weekend">5</div>
+        <div class="day-cell weekend">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell weekend">12</div>
+        <div class="day-cell weekend">13</div><div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell weekend">19</div>
+        <div class="day-cell weekend">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell">25</div><div class="day-cell weekend">26</div>
+        <div class="day-cell weekend">27</div><div class="day-cell">28</div><div class="day-cell">29</div><div class="day-cell">30</div><div class="day-cell">31</div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+
+    <!-- November -->
+    <div class="month-container">
+      <div class="month-header">November 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell">1</div><div class="day-cell weekend">2</div>
+        <div class="day-cell weekend">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell">7</div><div class="day-cell">8</div><div class="day-cell weekend">9</div>
+        <div class="day-cell weekend">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell">14</div><div class="day-cell">15</div><div class="day-cell weekend">16</div>
+        <div class="day-cell weekend">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell">21</div><div class="day-cell">22</div><div class="day-cell weekend">23</div>
+        <div class="day-cell weekend">24</div><div class="day-cell">25</div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell">28</div><div class="day-cell">29</div><div class="day-cell weekend">30</div>
+      </div>
+    </div>
+
+    <!-- December -->
+    <div class="month-container">
+      <div class="month-header">December 2025</div>
+      <div class="day-header">
+        <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center;">
+        <div class="day-cell weekend"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+        <div class="day-cell weekend">1</div><div class="day-cell">2</div><div class="day-cell">3</div><div class="day-cell">4</div><div class="day-cell">5</div><div class="day-cell">6</div><div class="day-cell weekend">7</div>
+        <div class="day-cell weekend">8</div><div class="day-cell">9</div><div class="day-cell">10</div><div class="day-cell">11</div><div class="day-cell">12</div><div class="day-cell">13</div><div class="day-cell weekend">14</div>
+        <div class="day-cell weekend">15</div><div class="day-cell">16</div><div class="day-cell">17</div><div class="day-cell">18</div><div class="day-cell">19</div><div class="day-cell">20</div><div class="day-cell weekend">21</div>
+        <div class="day-cell weekend">22</div><div class="day-cell">23</div><div class="day-cell">24</div><div class="day-cell holiday">25<span class="holiday-marker">●</span></div><div class="day-cell">26</div><div class="day-cell">27</div><div class="day-cell weekend">28</div>
+        <div class="day-cell weekend">29</div><div class="day-cell">30</div><div class="day-cell">31</div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell"></div><div class="day-cell weekend"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel (Holidays) -->
+  <div class="sidebar">
+    <!-- General Holidays Column -->
+    <div class="holiday-column">
+      <div class="holiday-section">
+        <div class="section-title">General Holidays (17)</div>
+        <ul class="holiday-list">
+          <li class="holiday-general">01 Jan - New Year's Day</li>
+          <li class="holiday-general">26 Jan - Republic Day</li>
+          <li class="holiday-general">09 Mar - Mahashivratri</li>
+          <li class="holiday-general">25 Mar - Holi</li>
+          <li class="holiday-general">14 Apr - Dr. Ambedkar Jayanti</li>
+          <li class="holiday-general">15 Apr - Good Friday</li>
+          <li class="holiday-general">21 Jun - International Yoga Day</li>
+          <li class="holiday-general">29 Jul - Muharram</li>
+          <li class="holiday-general">15 Aug - Independence Day</li>
+          <li class="holiday-general">19 Aug - Raksha Bandhan</li>
+          <li class="holiday-general">02 Oct - Gandhi Jayanti</li>
+          <li class="holiday-general">12 Oct - Dussehra</li>
+          <li class="holiday-general">31 Oct - Sardar Patel Jayanti</li>
+          <li class="holiday-general">07 Nov - Diwali</li>
+          <li class="holiday-general">15 Nov - Guru Nanak Jayanti</li>
+          <li class="holiday-general">25 Dec - Christmas</li>
+          <li class="holiday-general">31 Dec - New Year's Eve</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Restricted Holidays Column -->
+    <div class="holiday-column">
+      <div class="holiday-section">
+        <div class="section-title">Restricted Holidays (35)</div>
+        <ul class="holiday-list">
+          <li class="holiday-restricted">14 Feb - Valentine's Day</li>
+          <li class="holiday-restricted">01 Apr - April Fools' Day</li>
+          <li class="holiday-restricted">05 Apr - Easter Sunday</li>
+          <li class="holiday-restricted">13 Apr - Baisakhi</li>
+          <li class="holiday-restricted">23 Apr - Hanuman Jayanti</li>
+          <li class="holiday-restricted">01 May - May Day</li>
+          <li class="holiday-restricted">09 May - Rabindra Jayanti</li>
+          <li class="holiday-restricted">16 May - Buddha Purnima</li>
+          <li class="holiday-restricted">21 Jun - Father's Day</li>
+          <li class="holiday-restricted">20 Jul - Bakri Eid</li>
+          <li class="holiday-restricted">06 Aug - Friendship Day</li>
+          <li class="holiday-restricted">19 Aug - Janmashtami</li>
+          <li class="holiday-restricted">23 Aug - Ganesh Chaturthi</li>
+          <li class="holiday-restricted">05 Sep - Teachers' Day</li>
+          <li class="holiday-restricted">17 Sep - Vishwakarma Puja</li>
+          <li class="holiday-restricted">28 Sep - Milad-un-Nabi</li>
+          <li class="holiday-restricted">02 Oct - Lal Bahadur Shast
